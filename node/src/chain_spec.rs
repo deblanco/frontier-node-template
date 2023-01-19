@@ -199,5 +199,6 @@ fn testnet_genesis(
 		ethereum: EthereumConfig {},
 		dynamic_fee: Default::default(),
 		base_fee: Default::default(),
+		ethereum_chain_id: pallet_ethereum_chain_id::pallet::GenesisConfig { chain_id: 1234 },
 	}
 }
