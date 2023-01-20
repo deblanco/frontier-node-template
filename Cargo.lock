@@ -967,6 +967,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "create-balance"
+version = "0.1.0"
+dependencies = [
+ "frame-support",
+ "frame-system",
+ "pallet-balances",
+ "pallet-evm",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+]
+
+[[package]]
 name = "crossbeam-channel"
 version = "0.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2026,6 +2039,7 @@ dependencies = [
 name = "frontier-template-runtime"
 version = "0.0.0"
 dependencies = [
+ "create-balance",
  "fp-rpc",
  "fp-self-contained",
  "frame-benchmarking",

@@ -15,6 +15,10 @@ targets = ['x86_64-unknown-linux-gnu']
 branch = 'master'
 git = 'https://github.com/paritytech/substrate'
 
+[dependencies.create-balance]
+default-features = false
+path = "../pallets/create-balance"
+
 [dependencies.codec]
 default-features = false
 features = ['derive']
@@ -251,4 +255,6 @@ std = [
     'pallet-evm/std',
     'pallet-evm-precompile-simple/std',
     'pallet-evm-precompile-sha3fips/std',
+    'pallet-evm-precompile-sha3fips/std',
+	'create-balance/std'
 ]

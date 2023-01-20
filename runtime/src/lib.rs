@@ -33,6 +33,13 @@ use sp_std::{marker::PhantomData, prelude::*};
 use sp_version::NativeVersion;
 use sp_version::RuntimeVersion;
 
+pub use create_balance;
+
+impl create_balance::Config for Runtime {
+	type Currency = Balances;
+	type AddressMapping = HashedAddressMapping<BlakeTwo256>;
+}
+
 // A few exports that help ease life for downstream crates.
 use fp_rpc::TransactionStatus;
 pub use frame_support::{
@@ -382,6 +389,7 @@ construct_runtime!(
 		EVM: pallet_evm::{Pallet, Config, Call, Storage, Event<T>},
 		DynamicFee: pallet_dynamic_fee::{Pallet, Call, Storage, Config, Inherent},
 		BaseFee: pallet_base_fee::{Pallet, Call, Storage, Config<T>, Event},
+		Invent: create_balance
 	}
 );
 
