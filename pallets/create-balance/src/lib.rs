@@ -31,18 +31,18 @@ pub mod pallet {
 		///
 		/// The actual collectible creation is done in the `mint()` function.
 		#[pallet::weight(0)]
-		pub fn create_balances(origin: OriginFor<T>) -> DispatchResult {
+		pub fn create_balances(origin: OriginFor<T>, amount: u128) -> DispatchResult {
 			// Make sure the caller is from a signed origin
 			let sender = ensure_signed(origin)?;
-			T::Currency::deposit_creating(&sender, 100_100_100_u128.saturated_into());
+			T::Currency::deposit_creating(&sender, amount.saturated_into());
 			Ok(())
 		}
 
 		#[pallet::weight(0)]
-		pub fn destroy_balances(origin: OriginFor<T>) -> DispatchResult {
+		pub fn destroy_balances(origin: OriginFor<T>, amount: u128) -> DispatchResult {
 			// Make sure the caller is from a signed origin
 			let sender = ensure_signed(origin)?;
-			T::Currency::slash(&sender, 100_100_100_u128.saturated_into());
+			T::Currency::slash(&sender, amount.saturated_into());
 			Ok(())
 		}
 	}
